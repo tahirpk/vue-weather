@@ -26,7 +26,7 @@
                       <div class="col-sm-2">Min Temperature: {{ city.min_temp | numFormat('0.00') }}</div>
                       
                       <div class="col-sm-2"> {{city.weather_state_name}}:{{ city.weather_state_abbr }} 
-                      <img src="https://www.metaweather.com/static/img/weather/png/64/lc.png" width="25" /> 
+                      <img v-bind:src="city.weather_state_abbr" width="25" v-bind:alt="city.weather_state_abbr" /> 
                       </div>
                     
                   <div>
@@ -58,7 +58,9 @@ export default {
       postBody: '',
       woeid: '',
       errors: [],
-      loading: false
+      loading: false,
+      weather_state_abbr:'',
+      alt:'',
     }
   }, 
   methods: {

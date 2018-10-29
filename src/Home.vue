@@ -15,7 +15,7 @@
                       <div class="col-sm-2">Min Temperature: {{ info.min_temp | numFormat('0.00') }}</div>
                       
                       <div class="col-sm-2"> {{info.weather_state_name}}:
-                      <img src="https://www.metaweather.com/static/img/weather/png/64/lc.png" width="25" /> 
+                      <img v-bind:src="info.weather_state_abbr" width="25" v-bind:alt="info.weather_state_abbr" /> 
                       </div>
                     
                   <div>
@@ -45,7 +45,9 @@ export default {
     return {
       infos: [],      
       errors: [],
-      loading: false
+      loading: false,
+      weather_state_abbr:'',
+      alt:'',
     }
   }, 
   methods: {
